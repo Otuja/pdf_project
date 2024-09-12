@@ -31,7 +31,7 @@ def index(request):
     # getting all object for index page
 
     # for pagination
-    paginator = Paginator(pdfs, 4)
+    paginator = Paginator(pdfs, 8)
     page_number = request.GET.get('page')
 
     try:
