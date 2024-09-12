@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="w-2/2 lg:mx-24 px-12 pb-10 md:shadow-2xl">
+
+    <h1 class="flex justify-center p-5 font-semibold">My Files</h1>
+    <hr class="mb-5">
+
+    <div class="flex flex-col items-center md:grid md:grid-cols-2 md:gap-20 lg:grid-cols-3 px-10">
+        {% for pdf in pdfs %}
+            <div class="w-60 mb-10 rounded-xl bg-gray-800">
+                <div class="relative overflow-hidden .pdf-container">
+                    <embed class="rounded-t-xl w-full h-60 overflow-hidden object-cover" src="{{ pdf.upload.url }}" type="application/pdf"> 
+                    <div class=" bg-white font-bold rounded-full p-2 absolute top-0 mt-2 ml-48 cursor-pointer hover:bg-gray-800">
+                        <a href="{{ pdf.upload.url }}" download="{{pdf.upload.url}}">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 242.7-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7 288 32zM64 352c-35.3 0-64 28.7-64 64l0 32c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-32c0-35.3-28.7-64-64-64l-101.5 0-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352 64 352zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>
+                        </a> 
+                    </div>
+                </div>
+
+                <div class="py-8 text-white">
+                    <p class="mx-3 font-semibold">{{pdf.coursecode}}</p>
+                    <p class="mx-3 text-sm overflow-ellipsis">{{pdf.coursename}}</p>
+                    <div class="relative flex justify-center mt-2 mb-2">
+                        <a href="{% url 'detail' pdf.id %}" class="absolute bg-white text-black rounded-full py-1 px-3 hover:scale-125">Expand</a>  
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+{% endblock%}

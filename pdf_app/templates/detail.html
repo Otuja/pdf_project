@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %} {{pdf.coursecode}} {% endblock %}
+
+{% block content %}
+    <div class="grid grid-cols-5 gap-6">
+        <div class="col-span-3">
+            <iframe src="{{pdf.upload.url}}" frameborder="0" height="400" class="w-full"></iframe>
+        </div>
+
+        <div class="col-span-2 p-6 bg-gray-100 rounded">
+            <div class="container mx-auto">
+                <h1 class="font-extrabold">{{pdf.coursecode}}</h1>
+                <h2 class="text-base overflow-ellipsis">{{pdf.coursename}}</h2>
+                <span class="text-base overflow-ellipsis">{{pdf.institution}}</span>
+                {% if pdf.description %}
+                    <p class="pt-4 text-base overflow-ellipsis">{{pdf.description}}</p>
+                {% endif %}
+
+                {% if request.user == pdf.owner %}
+                    <div class="mt-6 p-6 flex justify-around">
+                        <a href="{% url 'edit' pdf.id %}" class="bg-green-800 font-semibold text-white py-3 px-12 rounded-full hover:bg-green-950">Edit</a>
+                        <a href="{% url 'delete' pdf.id %}" class="bg-red-800 font-semibold text-white py-3 px-10 rounded-full hover:bg-red-950">Delete</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
