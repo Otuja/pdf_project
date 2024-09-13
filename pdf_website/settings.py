@@ -155,7 +155,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # MEDIA_URL = '/media/'
 GS_BUCKET_NAME = 'pdf_website'
 GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
-    'credentail.json'
+    config("GS_CREDENTIALS")
 )
 
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
