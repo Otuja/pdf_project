@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %} {{ title }} {% endblock %}
+<title>{% block title %}New{% endblock %}</title>
 
 {% block content %}
 
     <div class="w-2/2 lg:w-2/4 my-6 mx-auto p-6 bg-gray-50 rounded-xl shadow-xl">
-        <h1 class="mb-5 text-3xl">{{ title }}</h1>
+        <h1 class="mb-5 text-3xl flex justify-center">{{ title }}</h1>
         <form action="." method="post" enctype="multipart/form-data">
             {% csrf_token %}  
             <div class="space-y-4">
