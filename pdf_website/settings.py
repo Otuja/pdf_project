@@ -132,13 +132,18 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Additional directories for static files
 STATICFILES_DIRS = [
-    BASE_DIR / "static",  # or specify the path to your static files directory
+    os.path.join(BASE_DIR, "static"),  # Your development static files
 ]
 
+# This will be the directory where collected static files will be stored in production
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# WhiteNoise settings for serving static files in production
 if not DEBUG:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
