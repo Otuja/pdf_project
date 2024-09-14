@@ -7,10 +7,12 @@ certifi==2024.8.30
 chardet==5.2.0
 charset-normalizer==3.3.2
 click==8.1.7
+cloudinary==1.41.0
 colorama==0.4.6
 cookiecutter==2.6.0
 dj-database-url==2.2.0
 Django==5.1.1
+django-cloudinary-storage==0.3.0
 django-storages==1.14.4
 google-api-core==2.19.2
 google-auth==2.34.0
