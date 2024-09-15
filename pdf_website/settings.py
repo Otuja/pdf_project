@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 import dj_database_url
 from decouple import config
-from cloudinary_storage.storage import MediaCloudinaryStorage
+# from cloudinary_storage.storage import MediaCloudinaryStorage
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -47,9 +47,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',
+    # 'cloudinary_storage',
     'django.contrib.staticfiles',
-    'cloudinary',
+    # 'cloudinary',
     'pdf_app',
     
     

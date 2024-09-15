@@ -3,12 +3,12 @@
 {% block title %} {{pdf.coursecode}} {% endblock %}
 
 {% block content %}
-    <div class="grid grid-cols-5 gap-6">
-        <div class="col-span-3">
+    <div class="flex flex-col lg:grid lg:grid-cols-5 gap-6">
+        <div class="lg:col-span-3">
             <iframe src="{{pdf.upload.url}}" frameborder="0" height="400" class="w-full"></iframe>
         </div>
 
-        <div class="col-span-2 p-6 bg-gray-100 rounded">
+        <div class="lg:col-span-2 p-6 bg-gray-100 rounded">
             <div class="container mx-auto">
                 <h1 class="font-extrabold">{{pdf.coursecode}}</h1>
                 <h2 class="text-base overflow-ellipsis">{{pdf.coursename}}</h2>
