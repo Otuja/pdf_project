@@ -98,7 +98,6 @@ DATABASES = {
     }
 }
 
-DATABASES["default"] = dj_database_url.parse(config("DATABASE_URL"))
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -134,19 +133,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = '/static/'
 
 # Additional directories for static files
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),  # Your development static files
-]
+STATIC_URL = '/static/'
 
-# This will be the directory where collected static files will be stored in production
+# Define the directory where static files will be collected
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+# Define the directory where collected static files will be stored
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# WhiteNoise settings for serving static files in production
-if not DEBUG:
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # Default primary key field type
