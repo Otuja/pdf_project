@@ -30,8 +30,8 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = config("DEBUG", cast=bool)
-DEBUG = True
+DEBUG = config("DEBUG", cast=bool)
+# DEBUG = True
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
 
@@ -47,9 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    # 'cloudinary_storage',
     'django.contrib.staticfiles',
-    # 'cloudinary',
     'pdf_app',
     
     
@@ -159,12 +157,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
-
-# CLOUDINARY_STORAGE = {
-#     'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),
-#     'API_KEY': config('CLOUDINARY_API_KEY'),
-#     'API_SECRET': config('CLOUDINARY_API_SECRET'),
-# }
-
-# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-# MEDIA_URL = 'https://res.cloudinary.com/{}/'.format(config('CLOUDINARY_CLOUD_NAME'))
