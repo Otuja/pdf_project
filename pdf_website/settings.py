@@ -30,10 +30,10 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config("DEBUG", cast=bool)
+# DEBUG = config("DEBUG", cast=bool)
+DEBUG = True
 
-ALLOWED_HOSTS = config("ALLOWED_HOSTS").split(",")
-
+ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
@@ -158,11 +158,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
-if config('ENVIRONMENT') == 'development':
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-else:
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-    CLOUDINARY_STORAGE = {
-        'CLOUDINARY_URL': config('CLOUDINARY_URL')
-    }
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),
+#     'API_KEY': config('CLOUDINARY_API_KEY'),
+#     'API_SECRET': config('CLOUDINARY_API_SECRET'),
+# }
+
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# MEDIA_URL = 'https://res.cloudinary.com/{}/'.format(config('CLOUDINARY_CLOUD_NAME'))
